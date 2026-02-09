@@ -45,3 +45,32 @@ void loop() {
   digitalWrite(motor1pin2, HIGH);
   delay(3000);
 }
+``` 
+
+After completing the class exercise, I modified the timing and speed values to create a smoother back-and-forth rotation for a Minecraft head attached to the motor.
+``` cpp
+int motor1pin1 = 7;
+int motor1pin2 = 8;
+
+void setup() {
+  pinMode(motor1pin1, OUTPUT);
+  pinMode(motor1pin2, OUTPUT);
+  pinMode(9, OUTPUT); 
+}
+
+void loop() {
+
+  // Controlling speed (0 = off and 255 = max speed)     
+  analogWrite(9, 50); // ENA pin
+
+  digitalWrite(motor1pin1, HIGH);
+  digitalWrite(motor1pin2, LOW);
+  delay(700);
+
+  analogWrite(9, 50); // ENA pin
+  digitalWrite(motor1pin2, HIGH);
+  digitalWrite(motor1pin1, LOW);
+  delay(700);
+}
+```
+
